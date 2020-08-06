@@ -1,0 +1,25 @@
+ul {
+  display: flex;
+  padding: 0px;
+  justify-content: space-between;
+  background-color: #0e385b;
+  border-radius: 5px;
+  flex-wrap: wrap;
+}
+ul li {
+  list-style: none;
+  margin: 0;
+  padding: 0.8rem 1rem;
+  font-size: 1.4rem;
+  color: rgb(253, 250, 250);
+  flex: auto;
+  text-align: center;
+}
+
+.active {
+  background-color: #2b8091;
+}
+
+li:hover {
+  background-color: #2b8091;
+}
