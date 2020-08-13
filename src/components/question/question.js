@@ -23,14 +23,14 @@ export default class Question extends Component {
     const { isRightAnswer, rightAnswerNumber, activePage } = this.props;
     const dataRound = BIRDS_DATA[activePage];
     return (
-      <div className="question">
-        <div className="question__img">
+      <div className="question-block">
+        <div className="question-block__img">
           <img
             src={isRightAnswer ? dataRound[rightAnswerNumber - 1].image : bird}
             alt="bird"
           />
         </div>
-        <div className="question__source">
+        <div className="question-block__source">
           <p>
             {isRightAnswer
               ? `${dataRound[rightAnswerNumber - 1].name}`
@@ -38,7 +38,7 @@ export default class Question extends Component {
           </p>
           <hr></hr>
           <AudioPlayer
-            className="question__audio_player"
+            className="question-block__audio_player"
             layout="horizontal"
             src={dataRound[rightAnswerNumber - 1].audio}
             autoPlayAfterSrcChange={false}
