@@ -13,7 +13,6 @@ export default class BirdDetails extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log();
     if (this.props.birdId !== prevProps.birdId) {
       this.updateBird();
     }
@@ -21,7 +20,6 @@ export default class BirdDetails extends Component {
 
   updateBird() {
     const { bird } = this.props;
-    console.log(bird);
     if (!bird) {
       return;
     }

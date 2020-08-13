@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #edeebd;
+  background-color: #f3f3ad;
 }
 
 code {
@@ -17,4 +17,8 @@ code {
   max-width: 1400px;
   margin: auto;
   padding: 0 40px;
+}
+
+button {
+  outline: none !important;
 }

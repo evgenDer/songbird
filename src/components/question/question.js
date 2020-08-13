@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, createRef } from "react";
 import bird from "../../assets/bird-unknown.jpg";
 import AudioPlayer from "react-h5-audio-player";
 import BIRDS_DATA from "../../data/birds";
@@ -14,13 +14,17 @@ export default class Question extends Component {
 
   componentDidUpdate() {
     const { isRightAnswer } = this.props;
+    console.log(isRightAnswer);
     if (isRightAnswer) {
-      this.player.audio.pause();
+      this.player.current.audio.current.pause();
     }
   }
 
+  player = createRef();
+
   render() {
     const { isRightAnswer, rightAnswerNumber, activePage } = this.props;
+    console.log(isRightAnswer);
     const dataRound = BIRDS_DATA[activePage];
     return (
       <div className="question-block">
@@ -42,7 +46,7 @@ export default class Question extends Component {
             layout="horizontal"
             src={dataRound[rightAnswerNumber - 1].audio}
             autoPlayAfterSrcChange={false}
-            ref={(current) => (this.player = current)}
+            ref={this.player}
           />
         </div>
       </div>

@@ -11,16 +11,12 @@ export default class Answers extends Component {
   };
 
   onBirdSelected = (id) => {
-    console.log(BIRDS_DATA[this.props.activePage][id - 1]);
     this.setState({ selectedBird: BIRDS_DATA[this.props.activePage][id - 1] });
-    console.log(this.state);
-    debugger;
   };
 
   render() {
-    const { activePage, rightAnswerNumber } = this.props;
+    const { activePage, rightAnswerNumber, changeRightAnswer } = this.props;
     const { selectedBird } = this.state;
-    // console.log(selectedBird);
     return (
       <div className="answers-block">
         <div className="answers-block__list col-md-6">
@@ -29,6 +25,7 @@ export default class Answers extends Component {
             onBirdSelected={this.onBirdSelected}
             listBirds={BIRDS_DATA[activePage]}
             selectedBird={selectedBird}
+            changeRightAnswer={changeRightAnswer}
           />
         </div>
         <div className="answers-block__bird-details col-md-6">
