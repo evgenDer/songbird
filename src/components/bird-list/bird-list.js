@@ -7,37 +7,53 @@ import "./bird-list.css";
 export default class BirdList extends Component {
   state = {
     listBirds: null,
-    isCorrect: false,
+    countAttempts: 0,
   };
 
-  componentDidMount() {
+  componentWillMount() {
     const { listBirds } = this.props;
-
+    console.log(listBirds);
+    listBirds.map((item) => {
+      if (item.hasOwnProperty("currentClass")) {
+        delete item.currentClass;
+      }
+      return item;
+    });
+    console.log(listBirds);
     this.setState({ listBirds });
   }
 
-  componentDidUpdate() {}
-
   renderItems(arr, selectedBird) {
-    const { rightAnswerNumber, changeRightAnswer } = this.props;
+    const {
+      isRightAnswer,
+      rightAnswerNumber,
+      changeRightAnswer,
+      addScore,
+    } = this.props;
     return arr.map(({ id, name }, index) => {
       return (
         <li
           className="bird-list__item"
           key={id}
           onClick={() => {
-            if (!this.state.isCorrect) {
+            if (!isRightAnswer) {
               const audio = new Audio();
               if (rightAnswerNumber === id) {
                 changeRightAnswer();
                 audio.src = correctAudio;
                 audio.play();
-                this.setState({ isCorrect: true });
                 arr[index].currentClass = "correct";
+                addScore(this.state.countAttempts);
+                this.setState({ countAttempts: 0 });
               } else {
-                audio.src = errorAudio;
-                audio.play();
-                arr[index].currentClass = "error";
+                if (!arr[index].hasOwnProperty("currentClass")) {
+                  this.setState((prevState) => ({
+                    countAttempts: prevState.countAttempts + 1,
+                  }));
+                  audio.src = errorAudio;
+                  audio.play();
+                  arr[index].currentClass = "error";
+                }
               }
             }
             this.props.onBirdSelected(id);
@@ -54,7 +70,7 @@ export default class BirdList extends Component {
     let items;
     const { listBirds } = this.state;
     const { selectedBird } = this.props;
-    if (this.state.listBirds) {
+    if (listBirds) {
       items = this.renderItems(listBirds, selectedBird);
     }
     return this.state.listBirds ? (

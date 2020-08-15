@@ -14,7 +14,7 @@ export default class BirdDetails extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.birdId !== prevProps.birdId) {
-      this.updateBird();
+      this.setState({ bird: null });
     }
   }
 
@@ -30,7 +30,7 @@ export default class BirdDetails extends Component {
   render() {
     const { bird } = this.props;
 
-    if (!bird) {
+    if (!bird || this.props.birdId !== this.state.birdId) {
       return <span>Послушайте плеер. Выберите птицу из списка</span>;
     }
 

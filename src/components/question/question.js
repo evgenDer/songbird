@@ -6,15 +6,8 @@ import "react-h5-audio-player/lib/styles.css";
 import "./question.css";
 
 export default class Question extends Component {
-  componentDidMount() {
-    const countRounds = 6;
-    let { rightAnswerNumber } = this.props;
-    rightAnswerNumber = Math.floor(Math.random() * countRounds) + 1;
-  }
-
   componentDidUpdate() {
     const { isRightAnswer } = this.props;
-    console.log(isRightAnswer);
     if (isRightAnswer) {
       this.player.current.audio.current.pause();
     }
@@ -24,7 +17,6 @@ export default class Question extends Component {
 
   render() {
     const { isRightAnswer, rightAnswerNumber, activePage } = this.props;
-    console.log(isRightAnswer);
     const dataRound = BIRDS_DATA[activePage];
     return (
       <div className="question-block">

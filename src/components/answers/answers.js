@@ -15,7 +15,13 @@ export default class Answers extends Component {
   };
 
   render() {
-    const { activePage, rightAnswerNumber, changeRightAnswer } = this.props;
+    const {
+      activePage,
+      rightAnswerNumber,
+      changeRightAnswer,
+      addScore,
+      listBirds,
+    } = this.props;
     const { selectedBird } = this.state;
     return (
       <div className="answers-block">
@@ -23,13 +29,15 @@ export default class Answers extends Component {
           <BirdList
             rightAnswerNumber={rightAnswerNumber}
             onBirdSelected={this.onBirdSelected}
-            listBirds={BIRDS_DATA[activePage]}
             selectedBird={selectedBird}
             changeRightAnswer={changeRightAnswer}
+            listBirds={listBirds}
+            addScore={addScore}
+            activePage={activePage}
           />
         </div>
         <div className="answers-block__bird-details col-md-6">
-          <BirdDetails bird={this.state.selectedBird} />
+          <BirdDetails bird={selectedBird} activePage={activePage} />
         </div>
       </div>
     );
