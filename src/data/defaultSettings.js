@@ -5,7 +5,7 @@ const DEFAULT_SETTINGS = {
   currentRound: 0,
   isRightAnswer: false,
   rightAnswerNumber: 1,
-  endGame: false,
+  isEndGame: false,
   currentScore: 0,
 };
 

@@ -5,8 +5,9 @@ import Header from "../header";
 import "./app.css";
 import Question from "../question";
 import Answers from "../answers";
-import { DEFAULT_SETTINGS, MAX_SCORE_ROUND } from "./defaultSettings";
+import { DEFAULT_SETTINGS, MAX_SCORE_ROUND } from "../../data/defaultSettings";
 import Next from "../next-button";
+import Result from "../result";
 import BIRDS_DATA from "../../data/birds";
 
 export default class App extends Component {
@@ -43,8 +44,12 @@ export default class App extends Component {
         currentRound: prevState.currentRound + 1,
       }));
     } else {
-      this.setState({ ...DEFAULT_SETTINGS });
+      this.setState({ isEndGame: true });
     }
+  };
+
+  setNewGame = () => {
+    this.setState({ ...DEFAULT_SETTINGS });
   };
 
   addScore = (countAttempts = 0) => {
@@ -53,22 +58,30 @@ export default class App extends Component {
     }));
   };
 
+  renderHeader = () => {
+    const { currentScore, currentRound } = this.state;
+    return (
+      <Header
+        pages={this.roundList}
+        score={currentScore}
+        activePage={currentRound}
+      />
+    );
+  };
+
   render() {
     const {
       isRightAnswer,
       rightAnswerNumber,
-      endGame,
+      isEndGame,
       currentRound,
       currentScore,
     } = this.state;
-    return (
+    const HEADER = this.renderHeader();
+    return !isEndGame ? (
       <ErrorBoundry>
         <div id="songbird" className="wrapper">
-          <Header
-            pages={this.roundList}
-            score={currentScore}
-            activePage={currentRound}
-          />
+          {HEADER}
           <Question
             activePage={currentRound}
             isRightAnswer={isRightAnswer}
@@ -91,6 +104,11 @@ export default class App extends Component {
           />
         </div>
       </ErrorBoundry>
+    ) : (
+      <div id="songbird" className="wrapper">
+        {HEADER}
+        <Result currentScore={currentScore} setNewGame={this.setNewGame} />
+      </div>
     );
   }
 }
