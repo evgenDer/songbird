@@ -18,9 +18,13 @@ export default class App extends Component {
     { id: 1, name: "Журавлеобразные" },
     { id: 2, name: "Курообразные" },
     { id: 3, name: "Аистообразные" },
-    { id: 4, name: "Ракшеобразные" },
+    { id: 4, name: "Гусеобразные" },
     { id: 5, name: "Ржанкообразные" },
   ];
+
+  componentDidMount() {
+    this.setRightAnswer();
+  }
 
   changeRightAnswer = () => {
     this.setState((prevState) => ({
@@ -28,17 +32,17 @@ export default class App extends Component {
     }));
   };
 
-  setRightAnswer = (rightAnswerNumber) => {
+  setRightAnswer = () => {
+    const countAnswerVariants = 6;
+    const rightAnswerNumber =
+      Math.floor(Math.random() * countAnswerVariants) + 1;
     this.setState({ rightAnswerNumber });
   };
 
   changeRound = () => {
     const countRounds = 5;
     const { currentRound } = this.state;
-    const countAnswerVariants = 6;
-    const rightAnswerNumber =
-      Math.floor(Math.random() * countAnswerVariants) + 1;
-    this.setState({ rightAnswerNumber });
+    this.setRightAnswer();
     if (currentRound !== countRounds) {
       this.setState((prevState) => ({
         currentRound: prevState.currentRound + 1,
@@ -86,7 +90,6 @@ export default class App extends Component {
             activePage={currentRound}
             isRightAnswer={isRightAnswer}
             rightAnswerNumber={rightAnswerNumber}
-            setRightAnswer={this.setRightAnswer}
           />
           <Answers
             key={currentRound}
@@ -94,13 +97,13 @@ export default class App extends Component {
             rightAnswerNumber={rightAnswerNumber}
             changeRightAnswer={this.changeRightAnswer}
             addScore={this.addScore}
+            isRightAnswer={isRightAnswer}
             listBirds={BIRDS_DATA[currentRound]}
           />
           <Next
             changeRound={this.changeRound}
             isRightAnswer={isRightAnswer}
             changeRightAnswer={this.changeRightAnswer}
-            setRightAnswer={this.setRightAnswer}
           />
         </div>
       </ErrorBoundry>

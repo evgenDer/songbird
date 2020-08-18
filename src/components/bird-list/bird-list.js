@@ -30,12 +30,14 @@ export default class BirdList extends Component {
       changeRightAnswer,
       addScore,
     } = this.props;
+    console.log(isRightAnswer);
     return arr.map(({ id, name }, index) => {
       return (
         <li
           className="bird-list__item"
           key={id}
           onClick={() => {
+            console.log(isRightAnswer);
             if (!isRightAnswer) {
               const audio = new Audio();
               if (rightAnswerNumber === id) {

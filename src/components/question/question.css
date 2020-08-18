@@ -43,6 +43,7 @@ hr {
   height: 100%;
   width: 280px;
   height: 200px;
+  object-fit: cover;
 }
 .rhap_container {
   outline: none;

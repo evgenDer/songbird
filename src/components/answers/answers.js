@@ -16,6 +16,7 @@ export default class Answers extends Component {
 
   render() {
     const {
+      isRightAnswer,
       activePage,
       rightAnswerNumber,
       changeRightAnswer,
@@ -27,6 +28,7 @@ export default class Answers extends Component {
       <div className="answers-block">
         <div className="answers-block__list col-md-6">
           <BirdList
+            isRightAnswer={isRightAnswer}
             rightAnswerNumber={rightAnswerNumber}
             onBirdSelected={this.onBirdSelected}
             selectedBird={selectedBird}
