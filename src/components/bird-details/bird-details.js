@@ -50,6 +50,8 @@ export default class BirdDetails extends Component {
               src={audio}
               autoPlayAfterSrcChange={false}
               ref={(current) => (this.player = current)}
+              showJumpControls={false}
+              layout={"horizontal"}
             />
           </div>
         </div>

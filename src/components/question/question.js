@@ -1,6 +1,6 @@
 import React, { Component, createRef } from "react";
 import bird from "../../assets/bird-unknown.jpg";
-import AudioPlayer from "react-h5-audio-player";
+import ReactAudioPlayer from "react-h5-audio-player";
 import BIRDS_DATA from "../../data/birds";
 import "react-h5-audio-player/lib/styles.css";
 import "./question.css";
@@ -33,12 +33,13 @@ export default class Question extends Component {
               : "******"}
           </p>
           <hr></hr>
-          <AudioPlayer
+          <ReactAudioPlayer
             className="question-block__audio_player"
             layout="horizontal"
             src={dataRound[rightAnswerNumber - 1].audio}
             autoPlayAfterSrcChange={false}
             ref={this.player}
+            showJumpControls={false}
           />
         </div>
       </div>
