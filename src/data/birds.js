@@ -58,7 +58,7 @@ const BIRDS_DATA = [
         "В щебетании синиц различают более 40 различных звуковых сочетаний. Поют они практически круглый год, немного затихая только зимой. Синицы настоящие санитары леса. Одна пара синиц оберегает от вредителей десятки деревьев.",
       image: "https://live.staticflickr.com//65535//50228462017_966953a031.jpg",
       audio:
-        "htps://www.xeno-canto.org/sounds/uploaded/YTUXOCTUEM/SITTELABlack%20AmbuaFL%201sttrip.mp3",
+        "https://www.xeno-canto.org/sounds/uploaded/YTUXOCTUEM/SITTELABlack%20AmbuaFL%201sttrip.mp3",
     },
   ],
   [
