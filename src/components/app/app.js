@@ -37,6 +37,7 @@ export default class App extends Component {
     const rightAnswerNumber =
       Math.floor(Math.random() * countAnswerVariants) + 1;
     this.setState({ rightAnswerNumber });
+    console.log(rightAnswerNumber);
   };
 
   changeRound = () => {
