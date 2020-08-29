@@ -1,0 +1,39 @@
+.answers-block {
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.answers-block__list,
+.answers-block__bird-details {
+  border-radius: 10px;
+  background-color: #2b8091;
+  width: 100%;
+  height: fit-content;
+  min-height: 368px;
+  max-width: 100%;
+  margin: 20px 0;
+  padding: 0px;
+}
+
+@media (max-width: 1400px) {
+  .answers-block {
+    display: flex;
+    flex-direction: column;
+  }
+  .answers-block__bird-details {
+    margin-top: 0px;
+  }
+}
+
+.answers-block__bird-details {
+  padding: 20px;
+}
+
+.answers-block__bird-details span {
+  font-size: 1.4rem;
+}
+
+.answers-block__bird-details {
+  border: 2px solid #0e385b;
+}

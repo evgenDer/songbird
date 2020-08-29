@@ -1,0 +1,15 @@
+.btn_next {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #0e385b;
+  font-size: 1.5rem;
+  background-color: #868686 !important;
+  text-transform: uppercase;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.btn_next.correct {
+  background-color: #0e385b !important;
+}

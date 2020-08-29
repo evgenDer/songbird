@@ -1,0 +1,15 @@
+.score {
+  margin-top: 10px;
+  color: #0e385b;
+  font-family: "Dancing Script", cursive;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+@media (max-width: 670px) {
+  h2 {
+    font-size: 2rem;
+  }
+}

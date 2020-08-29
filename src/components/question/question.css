@@ -1,0 +1,126 @@
+.question-block {
+  color: white;
+  padding: 20px;
+  display: grid;
+  border-radius: 10px;
+  background-color: #2b8091;
+  grid-template-columns: 1fr 4fr;
+  grid-gap: 20px;
+  border: 2px solid #0e385b;
+}
+
+.question-block p {
+  text-align: left;
+  font-size: 3rem;
+}
+
+@media (max-width: 400px) {
+  .rhap_controls-section {
+    text-align: center;
+    justify-content: center;
+  }
+  .rhap_volume-controls {
+    display: none;
+  }
+}
+
+hr {
+  background-color: white;
+  height: 1px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.question-block__source {
+  display: flex;
+  flex-direction: column;
+  outline: none !important;
+}
+
+.question-block__img img {
+  text-align: center;
+  border-radius: 10px;
+  height: 100%;
+  width: 280px;
+  height: 200px;
+  object-fit: cover;
+}
+.rhap_container {
+  outline: none;
+  margin-top: 20px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.657);
+}
+.rhap_container {
+  background-color: white;
+  box-shadow: none;
+  outline: none;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.rhap_container * {
+  outline: none;
+}
+
+button:focus {
+  background-color: transparent;
+}
+
+.rhap_container svg {
+  vertical-align: initial;
+  color: #0e385b; /* deep-purple darken-3 */
+}
+
+.rhap_controls-section .rhap_additional-controls {
+  display: none;
+}
+
+.rhap_controls-section .rhap_volume-controls {
+  justify-content: flex-start;
+}
+
+.rhap_progress-section .rhap_time {
+  color: #0e385b;
+}
+
+.rhap_progress-bar-show-download .rhap_download-progress,
+.rhap_volume-bar-area .rhap_volume-bar {
+  background-color: #2b8091;
+}
+
+.rhap_progress-indicator,
+.rhap_volume-indicator,
+.rhap_progress-filled {
+  background-color: #0e385b;
+}
+
+.rhap_time {
+  width: 45px;
+}
+
+.rhap_progress-container {
+  outline: none;
+}
+
+@media (max-width: 800px) {
+  .question-block__img {
+    text-align: center;
+  }
+  .question-block {
+    display: block;
+  }
+  .rhap_horizontal {
+    flex-direction: column;
+  }
+  .rhap_controls-section {
+    width: 80%;
+  }
+  .question-block__img img {
+    width: 200px;
+    height: 150px;
+  }
+  .question-block p {
+    text-align: center;
+  }
+}
